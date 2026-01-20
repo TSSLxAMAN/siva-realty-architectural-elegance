@@ -1,20 +1,20 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import Layout from '@/components/Layout';
-import SectionHeader from '@/components/SectionHeader';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
-import { Mail, Phone, MapPin } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import Layout from "@/components/Layout";
+import SectionHeader from "@/components/SectionHeader";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Mail, Phone, MapPin } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -23,13 +23,15 @@ const Contact = () => {
       title: "Message sent",
       description: "We'll be in touch within 24 hours.",
     });
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -52,7 +54,9 @@ const Contact = () => {
               className="space-y-8"
             >
               <div>
-                <label htmlFor="name" className="block text-sm mb-3">Name</label>
+                <label htmlFor="name" className="block text-sm mb-3">
+                  Name
+                </label>
                 <Input
                   id="name"
                   name="name"
@@ -64,7 +68,9 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm mb-3">Email</label>
+                <label htmlFor="email" className="block text-sm mb-3">
+                  Email
+                </label>
                 <Input
                   id="email"
                   name="email"
@@ -77,7 +83,9 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm mb-3">Phone (optional)</label>
+                <label htmlFor="phone" className="block text-sm mb-3">
+                  Phone (optional)
+                </label>
                 <Input
                   id="phone"
                   name="phone"
@@ -89,7 +97,9 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm mb-3">Message</label>
+                <label htmlFor="message" className="block text-sm mb-3">
+                  Message
+                </label>
                 <Textarea
                   id="message"
                   name="message"
@@ -101,7 +111,7 @@ const Contact = () => {
                 />
               </div>
 
-              <Button 
+              <Button
                 type="submit"
                 className="w-full h-14 bg-foreground text-background hover:bg-foreground/90 rounded-none text-sm tracking-wide"
               >
@@ -116,27 +126,42 @@ const Contact = () => {
               className="space-y-12"
             >
               <div>
-                <h3 className="text-lg font-medium mb-6">Contact Information</h3>
+                <h3 className="text-lg font-medium mb-6">
+                  Contact Information
+                </h3>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <Mail size={20} className="text-muted-foreground mt-0.5" />
                     <div>
-                      <p className="text-sm text-muted-foreground mb-1">Email</p>
-                      <p>hello@sivarealty.com</p>
+                      <p className="text-sm text-muted-foreground mb-1">
+                        Email
+                      </p>
+                      <p>hello@SIVASrealty.com</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <Phone size={20} className="text-muted-foreground mt-0.5" />
                     <div>
-                      <p className="text-sm text-muted-foreground mb-1">Phone</p>
+                      <p className="text-sm text-muted-foreground mb-1">
+                        Phone
+                      </p>
                       <p>+1 (555) 123-4567</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <MapPin size={20} className="text-muted-foreground mt-0.5" />
+                    <MapPin
+                      size={20}
+                      className="text-muted-foreground mt-0.5"
+                    />
                     <div>
-                      <p className="text-sm text-muted-foreground mb-1">Office</p>
-                      <p>123 Architecture Lane<br />New York, NY 10001</p>
+                      <p className="text-sm text-muted-foreground mb-1">
+                        Office
+                      </p>
+                      <p>
+                        123 Architecture Lane
+                        <br />
+                        New York, NY 10001
+                      </p>
                     </div>
                   </div>
                 </div>

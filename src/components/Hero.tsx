@@ -30,7 +30,7 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.3 }}
           className="text-4xl md:text-6xl lg:text-7xl font-light tracking-[0.4em] text-white mb-6"
         >
-          SIVA REALTY
+          SIVAS REALTY
         </motion.h1>
 
         <motion.p
