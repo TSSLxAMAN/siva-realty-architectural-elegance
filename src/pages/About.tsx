@@ -7,7 +7,7 @@ const About = () => {
     <Layout>
       <section className="pt-32 pb-24 lg:pt-40 lg:pb-32">
         <div className="container mx-auto px-6 lg:px-12">
-          <SectionHeader label="Our Story" title="About SIVAS REALTY" />
+          <SectionHeader label="Our Story" title="About AMAN KUMAR VERMA" />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             <motion.div

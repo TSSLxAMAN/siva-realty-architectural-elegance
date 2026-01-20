@@ -56,7 +56,7 @@ const Navbar = () => {
             to="/"
             className="text-lg tracking-[0.3em] font-medium text-foreground"
           >
-            SIVAS REALTY
+            AMAN KUMAR VERMA
           </Link>
 
           {/* Desktop Navigation */}

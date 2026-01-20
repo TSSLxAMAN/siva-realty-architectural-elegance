@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-16">
           <div className="md:col-span-2">
             <h3 className="text-lg tracking-[0.3em] font-medium mb-6">
-              SIVAS REALTY
+              AMAN KUMAR VERMA
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
               Thoughtfully curated properties for discerning clients. We believe
@@ -69,7 +69,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} SIVAS REALTY. All rights reserved.
+            © {new Date().getFullYear()} AMAN KUMAR VERMA. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-foreground transition-colors">
