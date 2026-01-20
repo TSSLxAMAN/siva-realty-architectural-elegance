@@ -1,19 +1,23 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Moon, Sun, Menu, X } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Moon, Sun, Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'Work', path: '/work' },
-  { name: 'Services', path: '/services' },
-  { name: 'About', path: '/about' },
-  { name: 'Contact', path: '/contact' },
+  { name: "Home", path: "/" },
+  { name: "Work", path: "/work" },
+  { name: "Services", path: "/services" },
+  { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" },
 ];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    // Load theme from localStorage on mount
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme ? savedTheme === "dark" : false;
+  });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -21,15 +25,17 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
     if (isDark) {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   }, [isDark]);
 
@@ -37,16 +43,19 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled 
-          ? 'bg-background/95 backdrop-blur-sm border-b border-border' 
-          : 'bg-transparent'
+        scrolled
+          ? "bg-background/95 backdrop-blur-sm border-b border-border"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="text-lg tracking-[0.3em] font-medium text-foreground">
+          <Link
+            to="/"
+            className="text-lg tracking-[0.3em] font-medium text-foreground"
+          >
             SIVA REALTY
           </Link>
 
@@ -57,9 +66,9 @@ const Navbar = () => {
                 key={link.path}
                 to={link.path}
                 className={`relative text-sm tracking-wide transition-colors hover:text-foreground ${
-                  location.pathname === link.path 
-                    ? 'text-foreground' 
-                    : 'text-muted-foreground'
+                  location.pathname === link.path
+                    ? "text-foreground"
+                    : "text-muted-foreground"
                 }`}
               >
                 {link.name}
@@ -71,7 +80,7 @@ const Navbar = () => {
                 )}
               </Link>
             ))}
-            
+
             <button
               onClick={() => setIsDark(!isDark)}
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -105,7 +114,7 @@ const Navbar = () => {
       {mobileMenuOpen && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
+          animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           className="md:hidden bg-background border-b border-border"
         >
@@ -116,9 +125,9 @@ const Navbar = () => {
                 to={link.path}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`text-sm tracking-wide py-2 ${
-                  location.pathname === link.path 
-                    ? 'text-foreground' 
-                    : 'text-muted-foreground'
+                  location.pathname === link.path
+                    ? "text-foreground"
+                    : "text-muted-foreground"
                 }`}
               >
                 {link.name}

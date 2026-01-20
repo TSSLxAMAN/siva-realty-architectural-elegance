@@ -1,12 +1,12 @@
-import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
-import heroImage from '@/assets/hero-architecture.jpg';
+import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+import heroImage from "@/assets/hero-architecture.jpg";
 
 const Hero = () => {
   const scrollToContent = () => {
     window.scrollTo({
       top: window.innerHeight,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
@@ -14,12 +14,12 @@ const Hero = () => {
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img 
-          src={heroImage} 
-          alt="Modern architecture" 
+        <img
+          src={heroImage}
+          alt="Modern architecture"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-foreground/30" />
+        <div className="absolute inset-0 bg-black/30 dark:bg-black/50" />
       </div>
 
       {/* Content */}
@@ -32,7 +32,7 @@ const Hero = () => {
         >
           SIVA REALTY
         </motion.h1>
-        
+
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -54,7 +54,7 @@ const Hero = () => {
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
           <ChevronDown size={32} strokeWidth={1} />
         </motion.div>
